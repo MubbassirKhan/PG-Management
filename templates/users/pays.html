@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment Successful</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #183d65;
+        }
+
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .success-animation {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background-color: #43a047;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .success-animation::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -50%;
+            width: 200%;
+            height: 2px;
+            background-color: white;
+            transform: translateY(-50%);
+            animation: moveLine 2s linear infinite;
+        }
+
+        .success-animation::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            width: 60px;
+            height: 100px;
+            background-color: transparent;
+            border: 6px solid white;
+            border-right: none;
+            border-top: none;
+            transform: translate(100%, -50%) rotate(-45deg) scale(0);
+            animation: drawTick 2s ease-in-out infinite;
+        }
+
+        .success-message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #183d65;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes moveLine {
+            0% { left: -50%; }
+            100% { left: 150%; }
+        }
+
+        @keyframes drawTick {
+            0%, 50% { transform: translate(100%, -50%) rotate(-45deg) scale(0); }
+            70% { transform: translate(100%, -50%) rotate(-45deg) scale(1.2); }
+            100% { transform: translate(100%, -50%) rotate(-45deg) scale(1); }
+        }
+
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-animation"></div>
+        <h1 class="success-message">Payment Successful!</h1>
+    </div>
+</body>
+</html>

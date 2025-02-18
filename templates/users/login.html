@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/login3.css') }}">
+    <style>
+        /* Attractive color scheme */
+        body {
+            background: linear-gradient(to bottom, #bfdff7, #89b9e0); /* Cool blue gradient background */
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff; /* Light text color for better contrast */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-form {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white form background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .login-form h1 {
+            color: #007bff; /* Vibrant blue for the heading */
+            margin-bottom: 20px;
+        }
+
+        .login-form input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc; /* Light gray border for input fields */
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .login-form button {
+            padding: 10px 20px;
+            background-color: #22464a; /* Vibrant blue for the button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3; /* Slightly darker blue on hover */
+        }
+
+        .register-link a {
+            color: #007bff; /* Vibrant blue for the links */
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="login-form" method="post">
+            <div class="log" style="padding: 10%; margin-left: -2pc;">
+                <h1>Welcome Back</h1>
+                <input type="text" name="first_name" placeholder="Username" required>
+                <input type="password" name="Pass" placeholder="Password" required>
+                <a href="{{ url_for('forgot_password') }}" style="color: #007bff; text-decoration: none;">Forgot password?</a>
+                <button type="submit">Login</button>
+                <p class="register-link" style="color: black;">Don't have an account? <a href="{{ url_for('reg') }}">Register here</a></p>
+                <a href="{{ url_for('forgot_password') }}" style="color: #007bff; text-decoration: none;">Forgot password?</a>
+                <p class="register-link"><a href="{{ url_for('ad_login') }}">Admin Login</a></p>
+                <p class="register-link"><a href="{{ url_for('own_login')}}">Owner Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    // Client-side validation for the login form
+    function validateForm() {
+        var usernameInput = document.getElementById('username');
+        var passwordInput = document.getElementById('password');
+
+        if (usernameInput.value.trim() === '' || passwordInput.value.trim() === '') {
+            alert('Please enter both username and password.');
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    }
+</script>
+
+</html>

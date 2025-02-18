@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@410&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/book.css') }}">
+</head>
+
+<body>
+    <div class="center">
+        <h1> Book Your PG</h1>
+        <form action="/book" method="post" onsubmit="return validateForm()">
+            <div class="text_field">
+                <input type="text" name="name" required>
+                <span></span>
+                <label for="">Name</label>
+            </div>
+            <div class="text_field">
+                <input type="text" name="phone_number" required>
+                <span></span>
+                <label for="">Phone Number</label>
+            </div>
+            <div class="text_field">
+                <input type="email" name="email" required>
+                <span></span>
+                <label for="">Email Id</label>
+            </div>
+            <div class="text_field">
+                <input type="text" name="address" required>
+                <span></span>
+                <label for="">Permanent Address</label>
+            </div>
+            <div class="text_field">
+                <input type="text" name="adhar_number" required>
+                <span></span>
+                <label for="">Adhar Card Number</label>
+            </div>
+            <div>
+                <input type="submit" value="Book" style="margin-bottom: 2pc;">
+            </div>
+        </form>
+
+        <script>
+            function validateForm() {
+                var nameInput = document.getElementsByName('name')[0];
+                var phoneInput = document.getElementsByName('phone_number')[0];
+                var emailInput = document.getElementsByName('email')[0];
+                var addressInput = document.getElementsByName('address')[0];
+                var adharInput = document.getElementsByName('adhar_number')[0];
+
+                if (nameInput.value.trim() === '') {
+                    alert('Please enter your name.');
+                    return false; // Prevent form submission
+                }
+
+                if (phoneInput.value.trim() === '') {
+                    alert('Please enter your phone number.');
+                    return false; // Prevent form submission
+                } else {
+                    var phonePattern = /^\d{10}$/;
+                    if (!phonePattern.test(phoneInput.value.trim())) {
+                        alert('Phone number should be 10 digits.');
+                        return false; // Prevent form submission
+                    }
+                }
+
+                // Add more specific phone number validation if needed
+
+                if (emailInput.value.trim() === '') {
+                    alert('Please enter your email.');
+                    return false; // Prevent form submission
+                } else {
+                    var emailPattern = /^\w+([\.-]?\w+)*@gmail\.com$/;
+                    if (!emailPattern.test(emailInput.value.trim())) {
+                        alert('Email should be a Gmail account.');
+                        return false; // Prevent form submission
+                    }
+                }
+
+                if (addressInput.value.trim() === '') {
+                    alert('Please enter your permanent address.');
+                    return false; // Prevent form submission
+                }
+
+                if (adharInput.value.trim() === '') {
+                    alert('Please enter your Aadhar card number.');
+                    return false; // Prevent form submission
+                } else {
+                    var adharPattern = /^\d{12}$/;
+                    if (!adharPattern.test(adharInput.value.trim())) {
+                        alert('Aadhar card number should be 12 digits.');
+                        return false; // Prevent form submission
+                    }
+                }
+                // Add more specific validation rules if needed
+
+                return true; // Allow form submission
+            }
+        </script>
+</body>
+
+</html>

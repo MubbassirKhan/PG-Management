@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paying Guest Book online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/index2.css') }}">
+</head>
+
+<body>
+    <nav class="nav-bar background">
+        <!-- <div class="first"> -->
+        <ul class="nav-list">
+            <div class="firstHalf" style="display: flex; margin-right: 13pc;">
+                <div class="logo"><img src="{{ url_for('static', filename='image5.png') }}" alt="Logo"></div>
+                <p class="text-big">Paying Guest Book online </p><BR>
+            </div>
+
+            <li><i class="fas fa-home"></i><a href="{{ url_for('index') }}">&nbsp;Home</a></li>
+            <li><i class="fas fa-info-circle"></i><a href="{{ url_for('about_us') }}">&nbsp;About Us</a></li>
+            <li><i class="fas fa-search"></i><a href="{{ url_for('Cards') }}">&nbsp;Search Rooms</a></li>
+            <li><i class="fas fa-sign-in-alt"></i><a href="{{ url_for('login') }}">&nbsp;Login</a></li>
+        </ul>
+        {% if session.logged_in %}
+        <button id="openPanel"><i class="fas fa-user"> &nbsp; </i>{{ session.uname }}</button>
+        {% endif %}
+        <div class="sliding-panel">
+            <div class="panel-content">
+                <h1>User Details</h1>
+                <div class="form-container">
+                    <h2>Edit Details</h2>
+                    <form method="POST">
+                        <div class="input-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" name="fname" value="{{ user_data[1] if user_data else '' }}" required>
+                            <button class="edit-button" type="button" onclick="editField('fname')">Edit</button>
+                        </div><br><br>
+                        <div class="input-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" name="lname" value="{{ user_data[2] if user_data else '' }}" required>
+                            <button class="edit-button" type="button" onclick="editField('lname')">Edit</button>
+                        </div><br><br>
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" value="{{ user_data[3] if user_data else '' }}" required>
+                            <button class="edit-button" type="button" onclick="editField('email')">Edit</button>
+                        </div><br><br>
+                        <div class="input-group">
+                            <label for="Pass">Password:</label>
+                            <input type="password" name="Pass" value="{{ user_data[4] if user_data else '' }}" required>
+                            <button class="edit-button" type="button" onclick="editField('Pass')">Edit</button>
+                        </div><br><br>
+                        <div class="div">
+                            <input type="submit" value="Save">
+                        </div>
+                        {% if session.logged_in %}
+                        <li id="logoutbtn"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>
+                                Logout</a></li>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section class="background Firstsection">
+        <div class="box-main">
+            <!-- <div class="rightNav">
+                <input type="text" name="search" placeholder="Search Here" id="search">
+                <button class="btn btn-sm">search</button>
+            </div> -->
+            <div id="one">
+                <h3 style="color: white; margin-top: 42pc; margin-left: -20pc;">Use the Website which provides all
+                    information about the PG accommodation..</h3>
+            </div>
+            <div class="SecondHalf">
+                <!-- <img src="CSS\paintimg.jpg" alt="bg images"> -->
+            </div>
+        </div>
+    </section>
+    <hr>
+    <section class="section section-Left ">
+        <div class="paras">
+            <p class="sectionTag text-big">Benifits of PG</p>
+            <p class="sectionSubTag text-small">
+                Ensuring a safe and secure environment, Indian parents are known for their extra possessiveness for
+                their children.
+                If the child is a girl, their anxieties reach another level. They always want to make sure their child
+                is safe and secure.
+                The atmosphere in PG provides a level of satisfaction to the parents as it is well equipped with CCTV
+                cameras, watchmen and security guards.
+                Some PGs even make sure the person living follows proper guidelines to ensure safety. In an emergency,
+                the PG also has access to doctors and first aid kits.
+            <h1><br> #Freedom</h1>
+            Most PG stays do not follow strict curfew rules; therefore, you won't have to compromise with your freedom.
+            You can even stay for a night at your friend's place.
+            All you have to do is enter the register and mention the checkout and check-in time.
+            </p>
+        </div>
+        <div class="thumnail">
+            <img src="{{ url_for('static', filename='img8.png') }}" alt="Guest Image" class="imgFluid" height="300px"
+                style="margin-top: 5pc;">
+        </div>
+    </section>
+    <hr>
+    <section class="section-Right">
+        <div class="paras">
+            <p class="sectionTag text-big">Hostel vs PG: which is better?</p>
+            <p class="sectionSubTag text-small">The added liberty at a PG makes it a better option for accommodation for
+                students. PGs have rules,
+                but they are far more flexible as compared to hostels.
+                However, PGs require a student to do a lot of their stuff by themselves.
+                So, it helps a student become self-reliant and learn how to live independently.
+                Also, it teaches you how you can strike a balance between your professional or college life while
+                completing your daily tasks
+                Considering PG or hostel depends on the choice of a student. Going by the trend,
+                hostels are not preferred due to low maintenance of the premises, the food quality and restrictions that
+                make the life of a student tougher.
+                Therefore, PGs have appeared as the most preferred accommodation option. </p>
+        </div>
+        <div class="thumnail">
+            <img src="{{ url_for('static', filename='img1.png') }}" alt="Guest Image" class="imgFluid">
+        </div>
+    </section>
+    <hr>
+    <section class="section">
+        <div class="paras">
+            <p class="sectionTag text-big">End of ur Search is here</p>
+            <p class="sectionSubTag text-small"> Well, PG refers to when a person stays in someone else's house/property
+                and pays rent for the accommodation and facilities available with it, such as electricity, water,
+                housekeeping, and food at times.
+                In India, you may find PG accommodation in various configurations.
+                The PG accommodation could be single or on a sharing basis.
+                In the latter case, usually, two or sometimes more people share a single room.
+                Typically, a PG consists of a food mess, in which meals, such as breakfast, lunch and dinner are served.
+                PG collects rent monthly, in advance at the beginning of the month.
+                To avoid managing everything from food to furniture, laundry, to grocery shopping on their own, people
+                choose PG rooms.
+                PG charges depend on the available facilities.
+                Some landlords run the PG business full-time, utilizing their entire bungalow, while others convert
+                their two or three vacant rooms into PG rooms to earn some extra income.
+                The PG owner employs a few people to run daily errands, such as fetching groceries, vegetables, cooking,
+                driving, etc. </p>
+        </div>
+        <div class="thumnail">
+            <img src="{{ url_for('static', filename='img5.jpg') }}" alt="Guest Image" class="imgFluid" width="400px">
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <div class="foot">
+            <h1>Contact Us</h1> <br>
+            <h2>Mail: amolrathod5655@gmail.com</h2>
+            <h2>Phone Number: 8971490395 </h2>
+            <h2>Whatsapp: 6361832670</h2>
+        </div>
+        <div class="foot">
+            <h1>Follow Us</h1><br>
+            <h2>Facebook</h2>
+            <h2>Twitter</h2>
+            <h2>Instagram</h2>
+        </div>
+        <div class="foot">
+            <h1>Usefull Links</h1><br>
+            <h2>Register</h2>
+            <h2>Login</h2>
+            <h2>Search Rooms</h2>
+        </div>
+
+    </footer>
+</body>
+
+<script>
+    const openPanelButton = document.getElementById('openPanel');
+    const userPanel = document.querySelector('.sliding-panel');
+
+    // Function to toggle the sliding panel
+    function togglePanel() {
+        const isOpen = userPanel.style.right === '0px';
+        userPanel.style.right = isOpen ? '-50%' : '0';
+        openPanelButton.innerHTML = isOpen ? '<i class="fas fa-user"></i>&nbsp;{{ session.uname }}' : '<i class="fas fa-times"></i>';
+    }
+
+    // Open or close the panel when the openPanelButton is clicked
+    openPanelButton.addEventListener('click', togglePanel);
+
+    // Close the panel when clicking anywhere on the home page (excluding the panel and openPanelButton)
+    document.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target !== openPanelButton && !userPanel.contains(target)) {
+            if (userPanel.style.right === '0px') {
+                togglePanel();
+            }
+        }
+    });
+</script>
+
+
+
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Rooms</title>
+</head>
+<style>
+    /* Styling for the user rooms page */
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .room-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .room-card {
+        
+        flex: 1;
+        max-width: calc(33.33% - 20px);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+    }
+
+    .room-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .room-photo {
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .room-details {
+        margin-top: 10px;
+    }
+
+    .room-owner {
+        font-weight: bold;
+    }
+
+    .room-location {
+        color: #666;
+    }
+
+    /* Styling for the back button */
+    .back-button {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    /* Styling for form fields */
+    input[type="file"],
+    input[type="text"],
+    input[type="radio"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Styling for checkboxes */
+    input[type="checkbox"] {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    /* Styling for submit button */
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Hover effect for form fields */
+    input[type="file"]:hover,
+    input[type="text"]:hover,
+    input[type="checkbox"]:hover,
+    input[type="radio"]:hover {
+        border-color: #007bff;
+    }
+
+    /* Styling for form container on larger screens */
+    @media screen and (min-width: 768px) {
+        form {
+            width: 40%;
+        }
+    }
+
+    /* Styling for the navigation bar */
+    nav {
+        background-color: #007bff;
+        /* Blue background color */
+        color: white;
+        /* Text color */
+        padding: 10px;
+        /* Padding around the navigation bar */
+    }
+
+    nav ul {
+        list-style: none;
+        /* Remove default list styles */
+        margin: 0;
+        /* Remove default margin */
+        padding: 0;
+        /* Remove default padding */
+    }
+
+    nav ul li {
+        display: inline-block;
+        /* Display list items in a row */
+        margin-right: 20px;
+        /* Spacing between list items */
+    }
+
+    nav ul li a {
+        text-decoration: none;
+        /* Remove underline from links */
+        color: white;
+        /* Text color for links */
+        font-weight: bold;
+        /* Bold font for links */
+        transition: color 0.3s;
+        /* Smooth transition for color change on hover */
+    }
+
+    nav ul li a:hover {
+        color: #0056b3;
+        /* Darker color on hover */
+    }
+</style>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('reg') }}">Register</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Rooms Available</h1>
+        <div class="room-list">
+            {% for room in rooms %}
+            <div class="room-card">
+                <h3>PG Of {{ room[5] }}</h3>
+                <p>Price per Month: {{ room[6] }}</p>
+                <p>State: {{ room[3] }}</p>
+                <p>City: {{ room[4] }}</p>
+                <p>Food Available: {{ room[1] }}</p>
+                <p>Parking Available: {{ room[2] }}</p>
+                <h4>Room Photo:</h4>
+                {% if image_files %}
+
+                <img src="{{ url_for('static', filename='amol/static/Bed1.jpg') }}" alt="Room Photo" class="room-photo">
+
+                {% else %}
+                {%
+                endif %}
+                <div>
+                    <br><br>
+                    <a class="custom-button" href="{{ url_for('book') }}">Book Here</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+     <script>
+        console.log("Image URL:", "{{ url_for('static', filename='amol/Pgimages/pgimg1') }}");
+    </script>
+
+<style>
+    .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: black;
+            font-size: larger;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 2pc;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+            color: white;
+        }
+</style>
+</html>

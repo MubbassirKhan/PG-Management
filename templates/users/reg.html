@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/register.css') }}">
+    <style>
+        /* Match the color scheme of the login page */
+        body {
+            background: linear-gradient(to bottom, #bfdff7, #89b9e0);
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 400px; /* Set the maximum width for the form */
+            width: 100%; 
+        }
+
+        .register-form h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .register-form input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .register-form button {
+            padding: 10px 20px;
+            background-color: #22464a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            
+        }
+
+        .register-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .login-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form class="register-form" method="post" onsubmit="return validateForm()">
+            <div class="log" style="padding: 10%; margin-left: -2pc;">
+                <h1>Register Your Account</h1>
+                <input type="text" name="first_name" placeholder="First Name" required>
+                <input type="text" name="last_name" placeholder="Last Name" required>
+                <input type="email" name="email" placeholder="Email Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="checkbox" class="checkbox" required>
+                <span style="color: black;"> I agree to the terms and conditions</span>
+                <button type="submit">Register</button>
+                <p class="login-link" style="color: black;">Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+<script>
+    // Client-side validation for the registration form
+    function validateForm() {
+        var firstNameInput = document.getElementsByName('first_name')[0];
+        var lastNameInput = document.getElementsByName('last_name')[0];
+        var emailInput = document.getElementsByName('email')[0];
+        var passwordInput = document.getElementsByName('password')[0];
+        var confirmPasswordInput = document.getElementsByName('confirm_password')[0];
+
+        if (
+            firstNameInput.value.trim() === '' ||
+            lastNameInput.value.trim() === '' ||
+            emailInput.value.trim() === '' ||
+            passwordInput.value.trim() === '' ||
+            confirmPasswordInput.value.trim() === ''
+        ) {
+            alert('Please fill in all the required fields.');
+            return false; // Prevent form submission
+        }
+
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            alert('Passwords do not match.');
+            return false; // Prevent form submission
+        }
+
+        if (!emailInput.value.endsWith('gmail.com')) {
+            alert('Email should be a Gmail account.');
+            return false; // Prevent form submission
+        }
+
+        // Password strength validation
+        var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!passwordPattern.test(passwordInput.value)) {
+            alert('Password should be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one number.');
+            return false; // Prevent form submission
+        }
+
+        // You can add more validation rules here if needed
+
+        return true; // Allow form submission
+    }
+</script>
+
+
+</html>

@@ -1,0 +1,76 @@
+* {
+    margin: 0x;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("img7.png");
+    background-size: cover;
+    font-family: sans-serif;
+}
+
+.bar {
+    background-image: linear-gradient(rgba(104, 183, 244, 0.75), rgba(25, 24, 24, 0.75)), url("img7.png");
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-size:auto;
+    display: flex;
+}
+.bar ul {
+    display: inline-flex;
+    list-style: none;
+    color: #fff;
+}
+.bar ul li::after {
+    content: '';
+    width: 50px;
+    margin: 15px;
+    padding: 15px;
+}
+.bar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+.active,
+.bar ul li:hover
+ {
+    background: #020202;
+    border-radius: 3px;
+}
+.menu-bar 
+{
+    display: none;
+}
+
+.bar ul li:hover .menu-bar 
+{
+    display: block;
+    position: absolute;
+    background: rgb(58, 108, 245);
+    margin-top: 10px;
+    margin-left: -10px;
+}
+.bar ul li:hover .menu-bar ul 
+{
+    display: block;
+    margin: 10px;
+}
+.bar ul li:hover .menu-bar ul li
+ {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    border-radius: 0;
+    text-align: left;
+}
+.bar ul li:hover .menu-bar ul li:last-child
+ {
+    border-bottom: none;
+}
+.bar ul li:hover .menu-bar ul li a:hover
+ {
+    color: #2babed;
+}

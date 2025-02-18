@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Owner Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/index2.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/owner.css') }}">
+</head>
+
+<body>
+    <nav class="nav-bar background">
+        <!-- <div class="first"> -->
+        <ul class="nav-list">
+            <div class="firstHalf" style="display: flex; margin-right: 13pc;">
+                <div class="logo"><img src="{{ url_for('static', filename='image5.png') }}" alt="Logo"></div>
+                <p class="text-big">Paying Guest Book online</p><BR>
+            </div>
+
+            <li><i class="fas fa-home"></i><a href="{{ url_for('index') }}">&nbsp;Home</a></li>
+            <li><i class="fas fa-info-circle"></i><a href="{{ url_for('about_us') }}">&nbsp;About Us</a></li>
+            <li><i class="fas fa-search"></i><a href="{{ url_for('Cards') }}">&nbsp;Search Rooms</a></li>
+            <li><i class="fas fa-sign-in-alt"></i><a href="{{ url_for('login') }}">&nbsp;Login</a></li>
+            <li><i class="fas fa-user-cog"></i><a href="{{ url_for('owner_dashboard') }}">&nbsp;Owner Dashboard</a></li>
+        </ul>
+        {% if session.logged_in %}
+        <button id="openPanel"><i class="fas fa-user"> &nbsp; </i>{{ session.uname }}</button>
+        {% endif %}
+        <div class="sliding-panel">
+            <div class="panel-content">
+                <h1>User Details</h1>
+                <!-- Owner-specific details -->
+                <!-- ... -->
+                <!-- End of owner-specific details -->
+                <div class="form-container">
+                    <h2>Edit Details</h2>
+                    <form method="POST">
+                        <!-- Owner-specific fields -->
+                        <!-- ... -->
+                        <!-- End of owner-specific fields -->
+                        <div class="div">
+                            <input type="submit" value="Save">
+                        </div>
+                        {% if session.logged_in %}
+                        <li id="logoutbtn"><a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>
+                                Logout</a></li>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Rest of the content for the owner dashboard goes here -->
+    <!-- ... -->
+
+    <footer>
+        <!-- Footer content goes here -->
+        <!-- ... -->
+    </footer>
+</body>
+
+<script>
+    // The JavaScript code for handling the sliding panel remains the same
+    // ...
+</script>
+<style>
+    /* Custom CSS for the owner dashboard page */
+/* Add your custom styles for the owner dashboard here */
+
+/* Example styles for the owner dashboard (you can modify them as needed) */
+
+/* Owner dashboard header */
+.owner-header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Owner dashboard main content */
+.owner-content {
+    padding: 20px;
+}
+
+/* Owner dashboard cards or sections */
+.owner-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Owner dashboard footer */
+.owner-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+</style>
+
+</html>

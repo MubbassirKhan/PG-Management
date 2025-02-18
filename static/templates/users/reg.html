@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>REGISTER PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/reg.css') }}">
+</head>
+
+<body>
+    <h1 style="text-align: center; color: brown;">Register Your Account Here</h1>
+    <div class="full-page" style="margin-left: 18pc; margin-top: -10pc;">
+        <div id="login-form" class="login-page">
+            <div class="form-box">
+                 
+                <form class="input-group-register" method="POST" action="reg"
+                    onsubmit="return validateForm()">
+                    <input type="text" class="input-field" name="first_name" placeholder="First Name" required>
+                    <input type="text" class="input-field" name="last_name" placeholder="Last Name" required><br>
+                    <input type="email" class="input-field" name="email" placeholder="Email Id" required><br>
+                    <input type="password" class="input-field" name="password" placeholder="Enter password" required><br>
+                    <input type="password" class="input-field" name="confirm_password" placeholder="Confirm password" required><br>
+                    <input type="checkbox" class="checkbox">
+                    <span> I agree to the terms and conditions</span>
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var password = document.forms["input-group-register"]["password"].value;
+            var confirmPassword = document.forms["input-group-register"]["confirm_password"].value;
+            var email = document.forms["input-group-register"]["email"].value;
+
+            if (password.length < 8 || !/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password) || !/[a-zA-Z]+/.test(password)) {
+                alert("Password should be at least 8 characters long and contain at least one special character and one letter.");
+                return false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            if (!email.endsWith("gmail.com")) {
+                alert("Email should be a Gmail account.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>

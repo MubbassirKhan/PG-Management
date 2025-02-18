@@ -1,0 +1,322 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Ubuntu', Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.nav-list {
+    /* width: 50%; */
+    display: flex;
+    align-items: center;
+    height: 6pc;
+    margin-top: 1pc;
+}
+
+.nav-list li {
+    transition: transform 0.3s;
+    list-style: none;
+    margin: 9px;
+    margin-left: -10px;
+    font-size: 22px;
+    padding: 10px;
+}
+
+.nav-list li:hover {
+    transform: scale(0.9);
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+.nav-list li a::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.nav-list li a:hover::before {
+    transform: scaleX(1);
+}
+
+
+.background {
+    background: rgba(0, 0, 0, 0.3) url('image10.jpeg');
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.box-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.firstHalf {
+    justify-content: center;
+    color: #fffffff0;
+    padding: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.text-big {
+    font-size: 42px;
+    font-weight: bold;
+    /* text-shadow: 1px 1px 5px rgba(188, 169, 169, 0.7); */
+    /* background-color: rgb(132, 132, 143); */
+    padding: 10px 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* .rightNav {
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 1pc;
+    border-radius: 17px;
+} */
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgba(22, 27, 34, 0.9);
+    color: #ffffff;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+/* .nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+} */
+
+/* .nav-list li {
+    margin-left: 10px;
+} */
+
+.nav-list li a {
+
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #ffc107;
+}
+
+.logo {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+/* .btn {
+    padding: 8px 20px;
+    font-size: 16px;
+    border: 2px solid grey;
+    border-radius: 18px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #ffc107;
+    color: #000000;
+} */
+
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-direction: row-reverse;
+
+    
+}
+.section-Right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    
+}
+
+.section-Left {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.paras {
+    width: 50%;
+    padding: 0 65px;
+ 
+}
+
+.sectionTag {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333333;
+}
+
+.sectionSubTag {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: #666666;
+    line-height: 1.6;
+}
+ 
+
+footer {
+    background-color: #10111a;
+    color: #ddd;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: center;
+}
+.foot {
+    max-width: 300px;
+    margin: 0 20px;
+}
+.foot h1 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+.foot p {
+    margin: 5px 0;
+}
+.foot a {
+    color: #aaa;
+    text-decoration: none;
+}
+.foot a:hover {
+    color: #fff;
+}
+
+#openPopupButton {
+    background-color: #007bff; /* Blue color for the button background */
+    color: #fff; /* Text color */
+    border: none; /* Remove default button border */
+    padding: 12px 24px; /* Add padding to create some space around the text */
+    border-radius: 5px; /* Round the button corners */
+    font-size: 18px; /* Font size for the text */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Show a pointer cursor on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+  }
+
+  .sliding-panel {
+    position: fixed;
+    top: 0;
+    color: black;
+    right: -50%;
+    /* Start the panel off-screen */
+    width: 50%;
+    /* Adjust the width as needed */
+    height: 100vh;
+    /* Adjust the height as needed */
+    background-color: #c7cac9;
+    transition: right 0.7s ease-in-out;
+    /* Adjust the transition duration for a slower animation */
+    text-shadow: none;
+    z-index: 9999;
+}
+
+#openPanel {
+    padding: 10px;
+    border: 2px solid white;
+    color: white;
+    background-color: #aaa;
+    transition: background-color 0.3s;
+}
+
+#openPanel:hover {
+    background-color: #232424f3;
+}
+
+/* Styles for the panel content */
+.panel-content {
+    padding: 20px;
+}
+
+/* Styles for the input groups and buttons */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 5px;
+}
+
+.input-group .edit-button {
+    margin-left: 10px;
+}
+
+.div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.div input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

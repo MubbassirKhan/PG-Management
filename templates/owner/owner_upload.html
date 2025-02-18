@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Owner Dashboard</title>
+</head>
+<style>
+    /* Styling for the form container */
+    form {
+        width: 50%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styling for labels */
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    /* Styling for input fields */
+    input[type="file"],
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Styling for checkboxes and radio buttons */
+    input[type="checkbox"],
+    input[type="radio"] {
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    /* Styling for submit button */
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+
+    /* Hover effect for form fields */
+    input[type="file"]:hover,
+    input[type="text"]:hover,
+    input[type="checkbox"]:hover,
+    input[type="radio"]:hover {
+        border-color: #007bff;
+    }
+
+    /* Styling for form container on larger screens */
+    @media screen and (min-width: 768px) {
+        form {
+            width: 40%;
+        }
+    }
+</style>
+
+<body>
+    <div style="background-color: dodgerblue; text-align: center; color: white; height: 5pc;">
+        <h1 style="padding-top: 1pc;">Owner Dashboard</h1>
+    </div>
+    <form method="POST" action="/owner/owner_upload" enctype="multipart/form-data">
+
+        <label class="file-input-label" for="name">Owner Name</label>
+        <input type="text" id="name" class="file-input" name="oname" placeholder="Enter Owner PG Name">
+
+        <label class="file-input-label" for="photo">Upload Photo</label>
+        <input type="file" id="photo" class="file-input" name="iphoto" accept="image/*">
+
+        <label for="outside_photo">Upload Outside Photo:</label>
+        <input type="file" name="ophoto" accept="image/*"><br><br>
+
+        <!-- Add More Photos Button -->
+        <div id="additional-photos-container"></div>
+        <button type="button" onclick="addMorePhotos()">Add More Photos</button><br><br>
+
+        <label for="food_types">Food Types:</label><br>
+        <input type="checkbox" name="food_types" value="vegetarian"> Vegetarian
+        <input type="checkbox" name="food_types" value="non_vegetarian"> Non-Vegetarian<br><br>
+
+        <label for="parking">Parking:</label>
+        <input type="radio" name="parking" value="available"> Available
+        <input type="radio" name="parking" value="not_available"> Not Available<br><br>
+
+        <label for="state">Select State</label>
+        <select name="state" required>
+            <option disabled selected>Select a state</option>
+            <option value="Karnataka">Karnataka</option>
+        </select><br><br>
+
+        <label for="City">Select City</label>
+        <select name="City" required>
+            <option value="" disabled selected>Select a City</option>
+            <option value="Dharwad">Dharwad</option>
+            <option value="Hubli">Hubli</option>
+            <option value="Belagavi">Belagavi</option>
+        </select><br><br>
+
+        <label class="file-input-label" for="Price">Price Per Month</label>
+        <input type="text" id="Price" class="file-input" name="Price" placeholder="Enter Price Per Month">
+
+        <button type="submit">Update PG Details</button>
+    </form>
+</body>
+<script>
+    // Function to add more photo upload fields
+    function addMorePhotos() {
+        const container = document.getElementById("additional-photos-container");
+        const input = document.createElement("input");
+        input.type = "file";
+        input.name = "ophoto";
+        input.accept = "image/*";
+        container.appendChild(input);
+        container.appendChild(document.createElement("br"));
+    }
+</script>
+
+</html>

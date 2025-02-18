@@ -1,0 +1,120 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 1rem;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.h1{
+    text-align: center;
+}
+.image {
+    position: relative;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .image img {
+    transform: scale(1.05);
+}
+.card:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    
+}
+
+.title {
+    margin-top: 1rem;
+}
+
+.des {
+    margin-top: 1rem;
+}
+
+.des p {
+    margin-bottom: 0.5rem;
+}
+
+button {
+    background-color: rgb(39, 181, 233);
+    margin-top: 1rem;
+}
+
+h1 {
+    color: rgb(49, 51, 10);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .card {
+        width: 50%;
+    }
+}
+.slideshow-container {
+        position: relative;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+    
+    .slideshow-container .image-container {
+        display: flex;
+        transition: transform 0.3s ease;
+    }
+    
+    .slideshow-container .image-container .image {
+        width: 100%;
+        flex-shrink: 0;
+    }
+    
+    .slideshow-container .prev,
+    .slideshow-container .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .slideshow-container .prev:hover,
+    .slideshow-container .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .slideshow-container .prev {
+        left: 0;
+    }
+    
+    .slideshow-container .next {
+        right: 0;
+    }

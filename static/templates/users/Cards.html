@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cards front</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/cards.css') }}">
+</head>
+
+<body>
+    <!-- <a href="javaScript:history.back()" style="font-size: larger; border: 1px solid black;text-decoration: none; color: black">Go Back</a><br><br> -->
+    <h1 style="color: rgb(49, 51, 10) ;">Single </h1>
+    <div class="main">
+
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card1') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Kalmesh Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>Single Sharing</p><br>
+                <p>Rs: 3500</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card1') }}">Read
+                        More....</a></button>
+            </div><br>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card2') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Kalmesh Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>Single Sharing</p><br>
+                <p>Rs: 3500</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card2') }}">Read
+                        More....</a></button>
+            </div><br>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card3') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Manish Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>Single Sharing</p><br>
+                <p>Rs: 3000</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card3') }}">Read
+                        More....</a></button>
+            </div>
+        </div>
+
+
+    </div>
+    <h1>Two sharing</h1>
+    <div class="main">
+
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card4') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Ravi Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>two Sharing</p><br>
+                <p>Rs: 3500 per head</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card4') }}">Read
+                        More....</a></button>
+            </div><br>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card5') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Ravi Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>two Sharing</p><br>
+                <p>Rs: 3500 per head</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card5') }}">Read
+                        More....</a></button>
+            </div><br>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card6') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Mahantesh Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>two Sharing</p><br>
+                <p>Rs: 3000 per head</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card6') }}">Read
+                        More....</a></button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <h1>Three sharing</h1>
+    <div class="main">
+
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card7') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Ram Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>three Sharing</p><br>
+                <p>Rs: 2000</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card7') }}">Read
+                        More....</a></button>
+            </div><br>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card8') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px" height="20%"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Guru Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>three Sharing</p><br>
+                <p>Rs: 2000</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card8') }}">Read
+                        More....</a></button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image">
+                <a href="{{ url_for('card9') }}"> <img src="{{ url_for('static', filename='Bed2.jpg') }}" width="400px" height="20%"></a>
+            </div>
+            <div class="title">
+                <h1>
+                    Guru Paying Guest for Boys</h1>
+            </div>
+            <div class="des">
+                <p>three Sharing</p><br>
+                <p>Rs: 2000</p>
+                <button style="background-color:rgb(39, 181, 233)"><a href="{{ url_for('card9') }}">Read
+                        More....</a></button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooms information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/subcards.css') }}">
+</head>
+
+<body>
+    <div class="body">
+
+        <div class="body1">
+            <img src="{{ url_for('static', filename='room8.jpeg') }}" alt="" width="100%"> 
+            <h2 style="background-color: rgb(230, 230, 125); margin-top: 3pc;">About the property</h2>
+            <p>OUR WEBSITE is a gent's PG in Saptapur, Dharwad. Better known for the services provided, this PG is
+                within the close range of places like KCD college. Any resident can enjoy
+                facilities such as housekeeping, free Wi-Fi, and security, apart from the basic amenities that make your
+                life hassle-free. This PG is also convenient for professionals who are working or studying in and around
+                Embassy Golf Links, Sony Signal. Any resident can enjoy the unlimited Wi-Fi and can
+                browse from 200+ TV channels provided in each room with DTH connection. Being under 24x7 CCTV
+                surveillance.</p><br>
+            <h2 style="background-color: rgb(230, 230, 125);">Room Details</h2>
+            <div class="main">
+                <div class="sub1">
+                    <h2>Private Room</h2>
+                    <h3>Starting From</h3>
+                    <h4>5000/month Rs</h4>
+                    <h2>3000/month Rs</h2>
+
+                </div>
+                <div class="sub2">
+                    <h2>Two Sharing</h2>
+                    <h3>Starting From</h3>
+                    <h4>6000/month Rs</h4>
+                    <h2>4000/month Rs</h2>
+
+                </div>
+                <div class="sub3">
+                    <h2>Three Sharing</h2>
+                    <h3>Starting From</h3>
+                    <h4>5600/month Rs</h4>
+                    <h2>3500/month Rs</h2>
+
+                </div>
+            </div>
+            <h2 style="background-color: rgb(230, 230, 125);">Food</h2>
+            <p>Food is charged on pro-rata basis with a subscription charge of Rs. 2900 per month.
+                North and South Indian cuisine available.</p>
+                <div class="main1">
+                    <div class="logo1">
+                        <h2>Week Days</h2>
+                        <img src="{{ url_for('static', filename='food1.svg') }}" alt="" width="100px">
+                        <p>BreakFast</p><br><br>
+                        <img src="{{ url_for('static', filename='food3.svg') }}" alt="" width="100px">
+                        <p>Dinner</p>
+                    </div>
+                    <div class="logo2">
+                        <h2>Week Ends</h2>
+                        <img src="{{ url_for('static', filename='food1.svg') }}" alt="" width="100px">
+                        <p>BreakFast</p> <br><br>
+                        <img src="{{ url_for('static', filename='food2.svg') }}" alt="" width="100px">
+                        <p>Lunch</p><br><br>
+                        <img src="{{ url_for('static', filename='food3.svg') }}" alt="" width="100px">
+                        <p>Dinner</p> <br>
+                    </div>
+                </div>
+            <div class="main2">
+                <h2 style="background-color: rgb(230, 230, 125);">Important Information</h2>
+                <h2>Food Timing</h2>
+                <p>Food Is Served In Common Dinning Area And Timings Are:-</p>
+                <li>BreakFast : 07:30AM to 10:00AM</li>
+                <li>Dinner : 08:30PM to 10:30PM</li>
+            </div>
+        </div>
+        <div class="body2">
+            <div class="s1">
+                <h1 style="background-color: rgb(150, 202, 253); color: rgb(2, 2, 50);">Online PG Management System</h1>
+                <h5>Karnataka,Dharwad,Saptapur near Ice-Zone 1st Cross Suryakanth PG</h5>
+            </div>
+            <hr>
+            <div class="s2">
+                <h2 style="font-size: 26px;background-color: rgb(230, 230, 125);">Room Details</h2>
+                <hr>
+                <h2>Room Type</h2>
+                <hr>
+            </div>
+            <div class="s3">
+                <div class="one">
+                    <h2>Private Room</h2>
+                    <h4>5000 RS</h4>
+                    <h3>3500 RS</h3>
+                </div>
+                <hr>
+                <div class="Two">
+                    <h2>Two Sharing</h2>
+                    <h4>3800 RS</h4>
+                    <h3>2500 RS</h3>
+                </div>
+                <hr>
+                <div class="three">
+                    <h2>Three Sharing</h2>
+                    <h4>2500 RS</h4>
+                    <h3>1500 RS</h3>
+                </div>
+                <hr>
+            </div>
+            <div class="s4">
+                <div class="b1">
+                    <a href="#"><button><a href="{{ url_for('book') }}" style="color: rgb(236, 212, 212); font-size: larger; text-decoration: none;"> BOOK NOW</a></button></a>
+                    <!-- <a href=""><button id="b1">SCHEDULE A VISIT</button></a> -->
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+</html>

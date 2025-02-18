@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PG Management System - Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #183d65;
+        }
+
+        .payment-options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .payment-options button {
+            padding: 12px;
+            font-size: 16px;
+            background-color: #183d65;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .payment-options button:hover {
+            background-color: #23578c;
+        }
+
+        .payment-details {
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .payment-details h2 {
+            color: #183d65;
+            margin-bottom: 10px;
+        }
+
+        .payment-details p {
+            margin-bottom: 10px;
+        }
+
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            visibility: hidden;
+        }
+
+        .popup-container {
+            background-color: white;
+            padding: 3%;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .popup-container h3 {
+            color: #183d65;
+            margin-bottom: 10px;
+        }
+
+        .popup-container p {
+            margin-bottom: 10px;
+        }
+
+        .popup-overlay.active {
+            visibility: visible;
+        }
+
+        .popup-container .payment-method-logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .success-popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #43a047;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .success-popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-popup h3 {
+            margin-top: 0;
+            font-size: 24px;
+        }
+
+        .success-animation {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+            animation: drawTick 1s ease-in-out forwards;
+        }
+
+        @keyframes drawTick {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+        
+
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <h1>PG Management System - Payment</h1>
+
+    <div class="payment-options">
+        <button onclick="openPopup('UPI')">Pay with UPI</button>
+        <button onclick="redirectToPhonePe()">Pay with PhonePe</button>
+        <button onclick="redirectToGooglePay()">Pay with Google Pay</button>
+        <button onclick="redirectToPaytm()">Pay with Paytm</button>
+    </div>
+
+    <div class="payment-details">
+        <h2>Payment Details</h2>
+        <p>Advance Payment Amount: &#8377;1000</p>
+        <p>Balance Amount to be Paid At Visit</p>
+    </div>
+
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container" id="popupContainer">
+            <h4>Please make a payment of &#8377;1000 in advance. <br>The remaining amount should be paid at the time of the visit.</h4>
+            <h3>Pay Here</h3>
+            <form method="post" onsubmit="return validateForm()">
+                <input type="text" name="Uname" placeholder="Enter Your Name"><br><br>
+                <input type="password" name="upi" placeholder="Enter UPI-ID"><br><br>
+                <input type="hidden" name="amt" value="1000">
+                <p>Amount Paying Is: &#8377;1000</p>
+                <input type="submit" name="submit" value="PAY">
+                <button onclick="closePopup()">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openPopup(paymentMethod) {
+            var popupOverlay = document.getElementById("popupOverlay");
+            var popupContainer = document.getElementById("popupContainer");
+
+            popupOverlay.classList.add("active");
+            popupContainer.style.visibility = "visible";
+        }
+        function validateForm() {
+        var upiInput = document.getElementById('upiInput');
+        var upiPattern = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]{2,3}$/;
+
+        if (upiInput.value.trim() === '') {
+            alert('Please enter your UPI ID.');
+            return false; // Prevent form submission
+        } else if (!upiPattern.test(upiInput.value.trim())) {
+            alert('Invalid UPI ID format.');
+            return false; // Prevent form submission
+        }
+    }
+
+        function closePopup() {
+            var popupOverlay = document.getElementById("popupOverlay");
+            var popupContainer = document.getElementById("popupContainer");
+
+            popupOverlay.classList.remove("active");
+            popupContainer.style.visibility = "hidden";
+        }
+
+        function redirectToPhonePe() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.phonepe.app";
+        }
+
+        function redirectToGooglePay() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user";
+        }
+
+        function redirectToPaytm() {
+            window.location.href = "https://play.google.com/store/apps/details?id=net.one97.paytm";
+        }
+
+        function redirectToPhonePe() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.phonepe.app";
+        }
+
+        function redirectToGooglePay() {
+            window.location.href = "https://play.google.com/store/apps/details?id=com.google.android.apps.nbu.paisa.user";
+        }
+
+        function redirectToPaytm() {
+            window.location.href = "https://play.google.com/store/apps/details?id=net.one97.paytm";
+        }
+           
+    </script>
+</body>
+</html>
+
+
+

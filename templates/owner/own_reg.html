@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>REGISTER PAGE</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/reg.css') }}">
+</head>
+
+<body>
+    <h1 style="text-align: center; color: brown;">Register Your Account Here</h1>
+    <div class="full-page" style="margin-left: 18pc; margin-top: -10pc;">
+        <div id="login-form" class="login-page">
+            <div class="form-box">
+
+                <form class="input-group-register" method="POST" action="/owner/own_reg" onsubmit="return validateForm()">
+                    <input type="text" class="input-field" name="first_name" placeholder="First Name" required>
+                    <input type="text" class="input-field" name="last_name" placeholder="Last Name" required><br>
+                    <input type="email" class="input-field" name="email" placeholder="Email Id" required><br>
+                    <input type="password" class="input-field" name="password" placeholder="Enter password"
+                        required><br>
+                    <input type="password" class="input-field" name="confirm_password" placeholder="Confirm password"
+                        required><br>
+                    <input type="checkbox" class="checkbox">
+                    <span> I agree to the terms and conditions</span>
+                    <button type="submit" class="submit-btn">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+           function validateForm() {
+        var firstNameInput = document.getElementsByName('first_name')[0];
+        var lastNameInput = document.getElementsByName('last_name')[0];
+        var emailInput = document.getElementsByName('email')[0];
+        var passwordInput = document.getElementsByName('password')[0];
+        var confirmPasswordInput = document.getElementsByName('confirm_password')[0];
+
+        if (
+            firstNameInput.value.trim() === '' ||
+            lastNameInput.value.trim() === '' ||
+            emailInput.value.trim() === '' ||
+            passwordInput.value.trim() === '' ||
+            confirmPasswordInput.value.trim() === ''
+        ) {
+            alert('Please fill in all the required fields.');
+            return false; // Prevent form submission
+        }
+
+        if (passwordInput.value !== confirmPasswordInput.value) {
+            alert('Passwords do not match.');
+            return false; // Prevent form submission
+        }
+
+        if (!emailInput.value.endsWith('gmail.com')) {
+            alert('Email should be a Gmail account.');
+            return false; // Prevent form submission
+        }
+
+        // Password strength validation
+        var passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+        if (!passwordPattern.test(passwordInput.value)) {
+            alert('Password should be at least 8 characters long and include at least one uppercase letter, one lowercase letter, and one number.');
+            return false; // Prevent form submission
+        }
+
+        // You can add more validation rules here if needed
+
+        return true; // Allow form submission
+    }
+    </script>
+    
+</body>
+
+</html>
